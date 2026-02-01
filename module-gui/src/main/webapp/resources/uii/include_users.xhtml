@@ -13,6 +13,7 @@
     xmlns:table="http://goobi.io/table"
     xmlns:form="http://goobi.io/form"
     xmlns:dl="http://goobi.io/dl"
+    xmlns:util="http://goobi.io/util"
     >
 
     <composite:interface>
@@ -38,10 +39,7 @@
                                     class="mx-1 btn gw-table__filters__option"
                                     jsf:action="#{AdministrationForm.administrationPlugin.filterUser}"
                                     jsf:immediate="true">
-                                    <span class="fa #{AdministrationForm.administrationPlugin.showOnlyActiveUser?'fa-check-square-o':'fa-square-o'}" />
-                                    <h:outputText
-                                        styleClass="font-size-s"
-                                        value="#{msgs.plugin_administration_deliveryManagement_showOnlyActiveUser}" />
+                                    <util:icon-text icon="#{AdministrationForm.administrationPlugin.showOnlyActiveUser ? 'square-check' : 'square'}" text="#{msgs.plugin_administration_deliveryManagement_showOnlyActiveUser}" />
                                     <f:setPropertyActionListener
                                         target="#{AdministrationForm.administrationPlugin.showOnlyActiveUser}"
                                         value="#{not AdministrationForm.administrationPlugin.showOnlyActiveUser}" />
@@ -53,10 +51,7 @@
                                     class="mx-1 btn gw-table__filters__option"
                                     jsf:action="#{AdministrationForm.administrationPlugin.filterUser}"
                                     jsf:immediate="true">
-                                    <span class="fa #{AdministrationForm.administrationPlugin.showAllUser?'fa-check-square-o':'fa-square-o'}" />
-                                    <h:outputText
-                                        styleClass="font-size-s"
-                                        value="#{msgs.plugin_administration_deliveryManagement_showAllUsers}" />
+                                    <util:icon-text icon="#{AdministrationForm.administrationPlugin.showAllUser ? 'square-check' : 'square'}" text="#{msgs.plugin_administration_deliveryManagement_showAllUsers}" />
                                     <f:setPropertyActionListener
                                         target="#{AdministrationForm.administrationPlugin.showAllUser}"
                                         value="true" />
@@ -73,10 +68,7 @@
                                     class="mx-1 btn gw-table__filters__option"
                                     jsf:action="#{AdministrationForm.administrationPlugin.filterUser}"
                                     jsf:immediate="true">
-                                    <span class="fa #{AdministrationForm.administrationPlugin.showOnlyDnbUser?'fa-check-square-o':'fa-square-o'}" />
-                                    <h:outputText
-                                        styleClass="font-size-s"
-                                        value="#{msgs.plugin_administration_deliveryManagement_showOnlyDnbUser}" />
+                                    <util:icon-text icon="#{AdministrationForm.administrationPlugin.showOnlyDnbUser ? 'square-check' : 'square'}" text="#{msgs.plugin_administration_deliveryManagement_showOnlyDnbUser}" />
                                     <f:setPropertyActionListener
                                         target="#{AdministrationForm.administrationPlugin.showAllUser}"
                                         value="false" />
@@ -93,10 +85,7 @@
                                     class="mx-1 btn gw-table__filters__option"
                                     jsf:action="#{AdministrationForm.administrationPlugin.filterUser}"
                                     jsf:immediate="true">
-                                    <span class="fa #{AdministrationForm.administrationPlugin.showNonDnbUser?'fa-check-square-o':'fa-square-o'}" />
-                                    <h:outputText
-                                        styleClass="font-size-s"
-                                        value="#{msgs.plugin_administration_deliveryManagement_showNonDnbUser}" />
+                                    <util:icon-text icon="#{AdministrationForm.administrationPlugin.showNonDnbUser ? 'square-check' : 'square'}" text="#{msgs.plugin_administration_deliveryManagement_showNonDnbUser}" />
                                     <f:setPropertyActionListener
                                         target="#{AdministrationForm.administrationPlugin.showAllUser}"
                                         value="false" />
@@ -114,7 +103,7 @@
                                 <h:form class="search-form">
                                     <div class="input-group">
                                         <span class="input-group-text">
-                                            <span class="fa fa-search" />
+                                            <util:icon icon="search" />
                                         </span>
                                         <h:inputText
                                             id="searchfield"
@@ -274,33 +263,28 @@
                                         <h:panelGroup
                                             rendered="#{item.user.status eq 'REGISTERED'}"
                                             class="badge badge-intranda-orange">
-                                            <span class="fa fa-key" />
-                                                #{msgs.plugin_administration_deliveryManagement_displayMode_user_status_registered}
-                                            </h:panelGroup>
+                                            <util:icon-text icon="key" text="#{msgs.plugin_administration_deliveryManagement_displayMode_user_status_registered}" />
+                                        </h:panelGroup>
                                         <h:panelGroup
                                             rendered="#{item.user.status eq 'ACTIVE'}"
                                             class="badge badge-intranda-green">
-                                            <span class="fa fa-unlock" />
-                                                #{msgs.plugin_administration_deliveryManagement_displayMode_user_status_active}
-                                            </h:panelGroup>
+                                            <util:icon-text icon="lock-open" text="#{msgs.plugin_administration_deliveryManagement_displayMode_user_status_active}" />
+                                        </h:panelGroup>
                                         <h:panelGroup
                                             rendered="#{item.user.status eq 'INACTIVE'}"
                                             class="badge badge-intranda-grey">
-                                            <span class="fa fa-lock" />
-                                                #{msgs.plugin_administration_deliveryManagement_displayMode_user_status_inactive}
-                                            </h:panelGroup>
+                                            <util:icon-text icon="lock" text="#{msgs.plugin_administration_deliveryManagement_displayMode_user_status_inactive}" />
+                                        </h:panelGroup>
                                         <h:panelGroup
                                             rendered="#{item.user.status eq 'REJECTED'}"
                                             class="badge badge-intranda-red">
-                                            <span class="fa fa-lock" />
-                                                #{msgs.plugin_administration_deliveryManagement_displayMode_user_status_rejected}
-                                            </h:panelGroup>
+                                            <util:icon-text icon="lock" text="#{msgs.plugin_administration_deliveryManagement_displayMode_user_status_rejected}" />
+                                        </h:panelGroup>
                                         <h:panelGroup
                                             rendered="#{item.user.status eq 'DELETED'}"
                                             class="badge badge-intranda-red">
-                                            <span class="fa fa-lock" />
-                                                #{msgs.plugin_administration_deliveryManagement_displayMode_user_status_deleted}
-                                            </h:panelGroup>
+                                            <util:icon-text icon="lock" text="#{msgs.plugin_administration_deliveryManagement_displayMode_user_status_deleted}" />
+                                        </h:panelGroup>
                                     </td>
                                     <!-- ACTION DATA -->
                                     <td>
@@ -308,10 +292,10 @@
                                             <!-- EDIT -->
                                             <button
                                                 jsf:id="edit"
-                                                class="btn btn-blank"
+                                                class="btn btn-icon btn-blank"
                                                 jsf:rel="tooltip"
                                                 title="#{msgs.benutzerBearbeiten}">
-                                                <span class="fa fa-pencil" />
+                                                <util:icon icon="pencil" />
                                                 <f:passThroughAttribute
                                                     name="data-toggle"
                                                     value="tooltip" />
@@ -329,12 +313,12 @@
                                             <!-- DOWNLOAD INSTITUTION DATA -->
                                             <button
                                                 jsf:id="export"
-                                                class="btn btn-blank"
+                                                class="btn btn-icon btn-blank"
                                                 jsf:rel="tooltip"
                                                 aria-label="#{msgs.plugin_administration_deliveryManagement_downloadInstitutionData}"
                                                 title="#{msgs.plugin_administration_deliveryManagement_downloadInstitutionData}"
                                                 jsf:action="#{AdministrationForm.administrationPlugin.exportInstitutionCoreData}">
-                                                <span class="fa fa-download" />
+                                                <util:icon icon="download" />
                                                 <f:passThroughAttribute
                                                     name="data-toggle"
                                                     value="tooltip" />
@@ -346,12 +330,12 @@
                                             <!-- DISPLAY IMPORTS -->
                                             <button
                                                 jsf:rendered="#{item.numberOfUploads gt 0}"
-                                                class="btn btn-blank"
+                                                class="btn btn-icon btn-blank"
                                                 jsf:rel="tooltip"
                                                 aria-label="#{msgs.plugin_administration_deliveryManagement_displayImports}"
                                                 jsf:title="#{msgs.plugin_administration_deliveryManagement_displayImports}"
                                                 jsf:action="#{AdministrationForm.administrationPlugin.generateInstitutionProcessTitleList}">
-                                                <span class="fa fa-list" />
+                                                <util:icon icon="list" />
                                                 <f:passThroughAttribute
                                                     name="data-toggle"
                                                     value="tooltip" />
@@ -579,10 +563,10 @@
                                 </h:selectOneRadio>
                                 <!-- button to send current status to dnb -->
                                 <button
-                                    class="btn btn-primary-400 ms-auto"
+                                    class="btn btn-icon btn-primary-400 ms-auto"
                                     jsf:id="syncStatus"
                                     jsf:action="#{AdministrationForm.administrationPlugin.syncUserStatus}">
-                                    <span class="fa fa-refresh" />
+                                    <util:icon icon="refresh" />
 
                                     <f:ajax
                                         execute="@this"
@@ -641,20 +625,20 @@
                                         jsf:rendered="#{!AdministrationForm.administrationPlugin.displaySecondContact}"
                                         jsf:id="createNewContact"
                                         jsf:action="#{AdministrationForm.administrationPlugin.createNewContact}"
-                                        class="btn btn-blank"
+                                        class="btn btn-icon btn-blank"
                                         title="#{msgs.plugin_rest_usercreation_new_createNewContact}"
                                         data-bs-toggle="tooltip">
-                                        <span class="fa fa-plus" />
+                                        <util:icon icon="plus" />
                                     </button>
                                 </ui:fragment>
                                 <ui:fragment rendered="#{entry.key=='page3a'}">
                                     <button
                                         jsf:id="disableContact"
                                         jsf:action="#{AdministrationForm.administrationPlugin.disableContact}"
-                                        class="btn btn-blank"
+                                        class="btn btn-icon btn-blank"
                                         title="#{msgs.plugin_rest_usercreation_new_disableContact}"
                                         data-bs-toggle="tooltip">
-                                        <span class="fa fa-minus" />
+                                        <util:icon icon="minus" />
                                     </button>
                                 </ui:fragment>
                             </form:fieldset>
@@ -670,7 +654,7 @@
                             class="btn btn-hot trigger-delete me-auto"
                             data-bs-toggle="modal"
                             data-bs-target="#deleteModal">
-                            <span class="fa fa-trash-o" />
+                            <util:icon icon="trash" />
                             <span>
                                 <h:outputText value="#{msgs.loeschen}" />
                             </span>
@@ -702,7 +686,7 @@
                                             jsf:id="confirmDelete"
                                             class="btn btn-hot"
                                             jsf:action="#{AdministrationForm.administrationPlugin.deleteUser}">
-                                            <span class="fa fa-trash-o" />
+                                            <util:icon icon="trash" />
                                             <span>
                                                 <h:outputText value="#{msgs.loeschen}" />
                                             </span>
@@ -733,7 +717,7 @@
                         jsf:id="absenden"
                         type="submit"
                         jsf:action="#{AdministrationForm.administrationPlugin.saveUser}">
-                        <span class="fa fa-save" />
+                        <util:icon icon="device-floppy" />
                         <span>
                             <h:outputText value="#{msgs.speichern}" />
                         </span>
@@ -760,7 +744,7 @@
                                 <h:form class="search-form">
                                     <div class="input-group">
                                         <span class="input-group-text">
-                                            <span class="fa fa-search" />
+                                            <util:icon icon="search" />
                                         </span>
                                         <h:inputText
                                             id="processsearchfield"
@@ -865,11 +849,11 @@
                                         onclick="sessionStorage.removeItem('columnWidths');"
                                         action="#{Metadaten.XMLlesen}"
                                         id="action15"
-                                        class="btn btn-blank"
+                                        class="btn btn-icon btn-blank"
                                         title="#{msgs.metadatenBearbeiten}"
                                         pt:aria-label="#{msgs.metadatenBearbeiten}"
                                         rel="tooltip">
-                                        <span class="fa fa-book " />
+                                        <util:icon icon="book" />
                                         <f:passThroughAttribute
                                             name="data-toggle"
                                             value="tooltip" />
@@ -928,18 +912,18 @@
                                 rendered="#{AdministrationForm.administrationPlugin.institutionProcessPaginator.totalResults > LoginForm.myBenutzer.tabellengroesse}">
 
                                 <button
-                                    class="btn btn-blank"
+                                    class="btn btn-icon btn-blank"
                                     aria-label="#{msgs.firstPage}"
                                     jsf:action="#{AdministrationForm.administrationPlugin.institutionProcessPaginator.cmdMoveFirst}"
                                     jsf:id="navfirst">
-                                    <span class="fa fa-angle-double-left" />
+                                    <util:icon icon="chevrons-left" />
                                     <f:ajax render="@form" />
                                 </button>
                                 <button
                                     class="btn btn-primary-400"
                                     jsf:action="#{AdministrationForm.administrationPlugin.institutionProcessPaginator.cmdMovePrevious}"
                                     jsf:id="navprev">
-                                    <span class="fa fa-angle-left" />
+                                    <util:icon icon="chevron-left" />
                                     <h:outputText value=" #{msgs.pagePrevious}" />
                                     <f:ajax render="@form" />
                                 </button>
@@ -980,15 +964,15 @@
                                     jsf:action="#{AdministrationForm.administrationPlugin.institutionProcessPaginator.cmdMoveNext}"
                                     jsf:id="navnext">
                                     <h:outputText value="#{msgs.pageNext} " />
-                                    <span class="fa fa-angle-right" />
+                                    <util:icon icon="chevron-right" />
                                     <f:ajax render="@form" />
                                 </button>
                                 <button
-                                    class="btn btn-blank"
+                                    class="btn btn-icon btn-blank"
                                     aria-label="#{msgs.lastPage}"
                                     jsf:action="#{AdministrationForm.administrationPlugin.institutionProcessPaginator.cmdMoveLast}"
                                     jsf:id="navlast">
-                                    <span class="fa fa-angle-double-right" />
+                                    <util:icon icon="chevrons-right" />
                                     <f:ajax render="@form" />
                                 </button>
                             </h:panelGroup>
@@ -1039,7 +1023,7 @@
                     jsf:id="saveProcessEdition"
                     type="submit"
                     jsf:action="#{AdministrationForm.administrationPlugin.saveZdbTitleData}">
-                    <span class="fa fa-save" />
+                    <util:icon icon="device-floppy" />
                     <span>
                         <h:outputText value="#{msgs.speichern}" />
                     </span>

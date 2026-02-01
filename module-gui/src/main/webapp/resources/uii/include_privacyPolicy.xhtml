@@ -9,6 +9,7 @@
     xmlns:c="http://java.sun.com/jstl/core"
     xmlns:intranda="http://xmlns.jcp.org/jsf/composite/composites"
     xmlns:section="http://goobi.io/section"
+    xmlns:util="http://goobi.io/util"
     >
 
     <composite:interface>
@@ -29,7 +30,7 @@
                     jsf:id="absenden"
                     type="submit"
                     jsf:action="#{AdministrationForm.administrationPlugin.savePrivacyPolicy}">
-                    <span class="fa fa-save margin-right-5" />
+                    <util:icon icon="device-floppy" />
                     <span>
                         <h:outputText value="#{msgs.speichern}" />
                     </span>
