@@ -1,11 +1,4 @@
 .deliveryManagement {
-  button,
-  .btn {
-    .fa ~ * {
-      margin-inline-start: 0.4rem;
-    }
-  }
-
   &.editMode .tabs {
     display: none;
   }
@@ -22,9 +15,6 @@
 
   /* under journal: additional styles to bring journal into PG style while component still uses od composites */
   .journal {
-    .fa {
-      margin: 0 10px 0 5px;
-    }
     .box-title {
       border-bottom: .15rem solid var(--clr-neutral-300);
       display: flex;
