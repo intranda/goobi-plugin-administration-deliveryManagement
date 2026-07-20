@@ -30,10 +30,7 @@
                     jsf:id="absenden"
                     type="submit"
                     jsf:action="#{AdministrationForm.administrationPlugin.savePrivacyPolicy}">
-                    <util:icon icon="device-floppy" />
-                    <span>
-                        <h:outputText value="#{msgs.speichern}" />
-                    </span>
+                    <util:icon-text icon="device-floppy" text="#{msgs.speichern}" />
                     <f:ajax
                         render="@form"
                         execute="@form" />

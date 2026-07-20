@@ -654,10 +654,7 @@
                             class="btn btn-hot trigger-delete me-auto"
                             data-bs-toggle="modal"
                             data-bs-target="#deleteModal">
-                            <util:icon icon="trash" />
-                            <span>
-                                <h:outputText value="#{msgs.loeschen}" />
-                            </span>
+                            <util:icon-text icon="trash" text="#{msgs.loeschen}" />
                         </button>
                         <div
                             class="modal fade"
@@ -686,10 +683,7 @@
                                             jsf:id="confirmDelete"
                                             class="btn btn-hot"
                                             jsf:action="#{AdministrationForm.administrationPlugin.deleteUser}">
-                                            <util:icon icon="trash" />
-                                            <span>
-                                                <h:outputText value="#{msgs.loeschen}" />
-                                            </span>
+                                            <util:icon-text icon="trash" text="#{msgs.loeschen}" />
                                             <f:setPropertyActionListener
                                                 value=""
                                                 target="#{AdministrationForm.administrationPlugin.editionMode}" />
@@ -717,10 +711,7 @@
                         jsf:id="absenden"
                         type="submit"
                         jsf:action="#{AdministrationForm.administrationPlugin.saveUser}">
-                        <util:icon icon="device-floppy" />
-                        <span>
-                            <h:outputText value="#{msgs.speichern}" />
-                        </span>
+                        <util:icon-text icon="device-floppy" text="#{msgs.speichern}" />
                         <f:ajax
                             render="@all"
                             execute="@form" />
@@ -923,8 +914,7 @@
                                     class="btn btn-primary-400"
                                     jsf:action="#{AdministrationForm.administrationPlugin.institutionProcessPaginator.cmdMovePrevious}"
                                     jsf:id="navprev">
-                                    <util:icon icon="chevron-left" />
-                                    <h:outputText value=" #{msgs.pagePrevious}" />
+                                    <util:icon-text icon="chevron-left" text="#{msgs.pagePrevious}" />
                                     <f:ajax render="@form" />
                                 </button>
 
@@ -963,8 +953,7 @@
                                     class="btn btn-primary-400"
                                     jsf:action="#{AdministrationForm.administrationPlugin.institutionProcessPaginator.cmdMoveNext}"
                                     jsf:id="navnext">
-                                    <h:outputText value="#{msgs.pageNext} " />
-                                    <util:icon icon="chevron-right" />
+                                    <util:icon-text icon="chevron-right" text="#{msgs.pageNext}" iconPosition="right" />
                                     <f:ajax render="@form" />
                                 </button>
                                 <button
@@ -1023,10 +1012,7 @@
                     jsf:id="saveProcessEdition"
                     type="submit"
                     jsf:action="#{AdministrationForm.administrationPlugin.saveZdbTitleData}">
-                    <util:icon icon="device-floppy" />
-                    <span>
-                        <h:outputText value="#{msgs.speichern}" />
-                    </span>
+                    <util:icon-text icon="device-floppy" text="#{msgs.speichern}" />
                     <f:setPropertyActionListener
                         value=""
                         target="#{AdministrationForm.administrationPlugin.editionMode}" />
