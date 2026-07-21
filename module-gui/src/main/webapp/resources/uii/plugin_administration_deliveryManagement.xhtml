@@ -11,6 +11,7 @@
     xmlns:p="http://primefaces.org/ui"
     xmlns:section="http://goobi.io/section"
     xmlns:table="http://goobi.io/table"
+    xmlns:util="http://goobi.io/util"
     >
 
     <composite:interface>
@@ -26,13 +27,7 @@
         <script src="template/js/plugins/tinymce/tinymce.min.js"></script>
 
         <main>
-            <h:panelGroup
-                rendered="#{!LoginForm.hasRole('Plugin_administration_deliveryManagement')}"
-                layout="block"
-                styleClass="alert alert-danger"
-                >
-                #{msgs.plugin_administration_missingPermission} Plugin_administration_deliveryManagement
-            </h:panelGroup>
+            <util:missing-rights rights="Plugin_administration_deliveryManagement" rendered="true" />
             <h:panelGroup
                 styleClass="deliveryManagement#{AdministrationForm.administrationPlugin.editionMode=='edit' ? ' row' : ''}"
                 layout="block"
