@@ -27,86 +27,86 @@
         <script src="template/js/plugins/tinymce/tinymce.min.js"></script>
 
         <main>
-            <util:missing-rights rights="Plugin_administration_deliveryManagement" rendered="true" />
-            <h:panelGroup
-                styleClass="deliveryManagement#{AdministrationForm.administrationPlugin.editionMode=='edit' ? ' row' : ''}"
-                layout="block"
-                rendered="#{LoginForm.hasRole('Plugin_administration_deliveryManagement')}">
+            <util:missing-rights rights="Plugin_administration_deliveryManagement">
                 <h:panelGroup
-                    layout="block"
-                    styleClass="#{AdministrationForm.administrationPlugin.editionMode=='edit' ? 'col-sm-6' : 'col-sm-12'}">
-                    <c:set var="editMode" value="#{AdministrationForm.administrationPlugin.editionMode eq 'edit' or AdministrationForm.administrationPlugin.editionMode eq 'editProcess'}" />
-                    <section:section
-                        type="#{editMode ? 'action' : 'primary'}"
-                        id="administrationPlugin">
-                        <section:header
-                            icon="plug"
-                            title="#{msgs[AdministrationForm.administrationPlugin.title]}#{AdministrationForm.administrationPlugin.displayMode != null ? ': '.concat(msgs[AdministrationForm.administrationPlugin.displayMode]) : ''}">
-                            <section:header-actions>
-                                <ul class="tabs" role="tablist" jsf:rendered="#{!editMode}">
-                                    <c:forEach
-                                        var="mode"
-                                        items="#{AdministrationForm.administrationPlugin.modes}">
-                                        <li class="tab #{mode eq AdministrationForm.administrationPlugin.displayMode ?'active':''}" aria-selected="#{mode eq AdministrationForm.administrationPlugin.displayMode ?'true':'false'}" role="presentation">
-                                            <h:commandLink
-                                                id="#{mode}Tab"
-                                                action="#{NavigationForm.Reload}"
-                                                value="#{msgs[mode]}"
-                                                disabled="#{AdministrationForm.administrationPlugin.editionMode == 'edit'}"
-                                                pt:role="tab">
-                                                <f:setPropertyActionListener
-                                                    target="#{AdministrationForm.administrationPlugin.displayMode}"
-                                                    value="#{mode}" />
-                                                <f:setPropertyActionListener
-                                                    value=""
-                                                    target="#{AdministrationForm.administrationPlugin.editionMode}" />
-                                                <f:ajax render="@all" />
-                                            </h:commandLink>
-                                        </li>
-                                    </c:forEach>
-                                </ul>
-                            </section:header-actions>
-                        </section:header>
+                    styleClass="deliveryManagement#{AdministrationForm.administrationPlugin.editionMode=='edit' ? ' row' : ''}"
+                    layout="block">
+                    <h:panelGroup
+                        layout="block"
+                        styleClass="#{AdministrationForm.administrationPlugin.editionMode=='edit' ? 'col-sm-6' : 'col-sm-12'}">
+                        <c:set var="editMode" value="#{AdministrationForm.administrationPlugin.editionMode eq 'edit' or AdministrationForm.administrationPlugin.editionMode eq 'editProcess'}" />
+                        <section:section
+                            type="#{editMode ? 'action' : 'primary'}"
+                            id="administrationPlugin">
+                            <section:header
+                                icon="plug"
+                                title="#{msgs[AdministrationForm.administrationPlugin.title]}#{AdministrationForm.administrationPlugin.displayMode != null ? ': '.concat(msgs[AdministrationForm.administrationPlugin.displayMode]) : ''}">
+                                <section:header-actions>
+                                    <ul class="tabs" role="tablist" jsf:rendered="#{!editMode}">
+                                        <c:forEach
+                                            var="mode"
+                                            items="#{AdministrationForm.administrationPlugin.modes}">
+                                            <li class="tab #{mode eq AdministrationForm.administrationPlugin.displayMode ?'active':''}" aria-selected="#{mode eq AdministrationForm.administrationPlugin.displayMode ?'true':'false'}" role="presentation">
+                                                <h:commandLink
+                                                    id="#{mode}Tab"
+                                                    action="#{NavigationForm.Reload}"
+                                                    value="#{msgs[mode]}"
+                                                    disabled="#{AdministrationForm.administrationPlugin.editionMode == 'edit'}"
+                                                    pt:role="tab">
+                                                    <f:setPropertyActionListener
+                                                        target="#{AdministrationForm.administrationPlugin.displayMode}"
+                                                        value="#{mode}" />
+                                                    <f:setPropertyActionListener
+                                                        value=""
+                                                        target="#{AdministrationForm.administrationPlugin.editionMode}" />
+                                                    <f:ajax render="@all" />
+                                                </h:commandLink>
+                                            </li>
+                                        </c:forEach>
+                                    </ul>
+                                </section:header-actions>
+                            </section:header>
 
-                        <h:panelGroup
-                            layout="block"
-                            id="actionform">
                             <h:panelGroup
-                                id="plugin-main-content"
                                 layout="block"
-                                pt:role="tabpanel"
-                                pt:aria-labelledby="#{AdministrationForm.administrationPlugin.displayMode}Tab">
-                                <ui:fragment rendered="#{AdministrationForm.administrationPlugin.displayMode == 'plugin_administration_deliveryManagement_displayMode_user'}">
-                                    <ui:include src="include_users.xhtml" />
-                                </ui:fragment>
+                                id="actionform">
+                                <h:panelGroup
+                                    id="plugin-main-content"
+                                    layout="block"
+                                    pt:role="tabpanel"
+                                    pt:aria-labelledby="#{AdministrationForm.administrationPlugin.displayMode}Tab">
+                                    <ui:fragment rendered="#{AdministrationForm.administrationPlugin.displayMode == 'plugin_administration_deliveryManagement_displayMode_user'}">
+                                        <ui:include src="include_users.xhtml" />
+                                    </ui:fragment>
 
-                                <ui:fragment rendered="#{AdministrationForm.administrationPlugin.displayMode == 'plugin_administration_deliveryManagement_displayMode_privacyPolicy'}">
-                                    <ui:include src="include_privacyPolicy.xhtml" />
-                                </ui:fragment>
+                                    <ui:fragment rendered="#{AdministrationForm.administrationPlugin.displayMode == 'plugin_administration_deliveryManagement_displayMode_privacyPolicy'}">
+                                        <ui:include src="include_privacyPolicy.xhtml" />
+                                    </ui:fragment>
 
-                                <ui:fragment rendered="#{AdministrationForm.administrationPlugin.displayMode == 'plugin_administration_deliveryManagement_displayMode_zdbTitleData'}">
-                                    <ui:include src="include_zdbTitleData.xhtml" />
-                                </ui:fragment>
+                                    <ui:fragment rendered="#{AdministrationForm.administrationPlugin.displayMode == 'plugin_administration_deliveryManagement_displayMode_zdbTitleData'}">
+                                        <ui:include src="include_zdbTitleData.xhtml" />
+                                    </ui:fragment>
+                                </h:panelGroup>
                             </h:panelGroup>
-                        </h:panelGroup>
-                    </section:section>
-                </h:panelGroup>
-                <h:panelGroup
-                    layout="block"
-                    styleClass="#{NavigationForm.uiStatus['journalBig']?'col-12 col-md-12':'col-6 col-md-6'} journal"
-                    rendered="#{AdministrationForm.administrationPlugin.editionMode=='edit'}">
-                    <h:form
-                        enctype="multipart/form-data">
-                        <intranda:journal
-                            showBigButton="true"
-                            showFolderSelection="false"
-                            showImageComments="false"
-                            bean="#{AdministrationForm.administrationPlugin.institution}" />
-                    </h:form>
-                    <!-- // Box for process log -->
+                        </section:section>
+                    </h:panelGroup>
+                    <h:panelGroup
+                        layout="block"
+                        styleClass="#{NavigationForm.uiStatus['journalBig']?'col-12 col-md-12':'col-6 col-md-6'} journal"
+                        rendered="#{AdministrationForm.administrationPlugin.editionMode=='edit'}">
+                        <h:form
+                            enctype="multipart/form-data">
+                            <intranda:journal
+                                showBigButton="true"
+                                showFolderSelection="false"
+                                showImageComments="false"
+                                bean="#{AdministrationForm.administrationPlugin.institution}" />
+                        </h:form>
+                        <!-- // Box for process log -->
 
+                    </h:panelGroup>
                 </h:panelGroup>
-            </h:panelGroup>
+            </util:missing-rights>
         </main>
         <script type="text/javascript">
                                     //<![CDATA[
